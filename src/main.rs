@@ -4,6 +4,7 @@ use rocket::Request;
 use rocket::response::content::Json;
 use rocket_contrib::templates::Template;
 use serde::Serialize;
+use rocket_contrib::serve::StaticFiles;
 
 #[get("/")]
 fn index() -> Template {
@@ -32,6 +33,7 @@ fn not_found(req: &Request) -> String {
 fn main() {
     rocket::ignite()
         .register(catchers![not_found])
+        .mount("/static", StaticFiles::from("static"))
         .mount("/", routes![index, hello])
         .attach(Template::fairing())
         .launch()
