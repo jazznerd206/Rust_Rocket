@@ -1,6 +1,6 @@
 console.log("I'm a dom.")
 
-let body = document.getElementById('root');
-let tag = document.createElement('h2');
-tag.innerHTML = 'Hello World';
-body.appendChild(tag);
+let title = document.getElementById('title-row');
+let tag = document.createElement('h1');
+tag.innerHTML = 'This is Rocket.';
+title.appendChild(tag);
